@@ -21,14 +21,19 @@
       placeholder="Password"
       >
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+
       <input class="form-submit" type="submit" value="Login">
     </form>  
+    <p class="msg">¿No tienes cuenta?
+      <router-link to="/register">Regístrate</router-link>
+    </p>
   </div>
 </header>
 <router-view/>
 </template>
 
 <script>
+import auth from "@/logic/auth";
 export default {
   name:"App",
 data: () => ({
@@ -37,11 +42,19 @@ data: () => ({
   error: false
 }),
 methods: {
-  login() {
-    console.log(this.email);
-    console.log(this.password);
+  async login() {
+  try {
+    await auth.login(this.email, this.password);
+    const user = {
+      email: this.email      
+    };
+    auth.setUserLogged(user);
     this.$router.push("/dashboard");
+  } catch (error) {
+    console.log(error);
+    this.error = true;
   }
+}
 }
 };
 </script>
