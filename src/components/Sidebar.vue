@@ -14,19 +14,19 @@
 		<div class="menu">
 			<router-link to="/" class="button">
 				<span class="material-icons">home</span>
-				<span class="text">Home</span>
+				<span class="text">Inicio</span>
 			</router-link>
 			<router-link to="/about" class="button">
 				<span class="material-icons">description</span>
-				<span class="text">About</span>
+				<span class="text">Acerca de: </span>
 			</router-link>
 			<router-link to="/team" class="button">
 				<span class="material-icons">group</span>
-				<span class="text">Team</span>
+				<span class="text">Equipo</span>
 			</router-link>
 			<router-link to="/contact" class="button">
 				<span class="material-icons">email</span>
-				<span class="text">Contact</span>
+				<span class="text">Contáctanos</span>
 			</router-link>
 		</div>
 
@@ -35,7 +35,7 @@
 		<div class="menu">
 			<router-link to="/settings" class="button">
 				<span class="material-icons">settings</span>
-				<span class="text">Settings</span>
+				<span class="text">Configuración</span>
 			</router-link>
 		</div>
 	</aside>
