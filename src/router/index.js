@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ListarUsuario from "../components/ListarUsuario.vue"
+import CrearUsuario from "../components/CrearUsuario.vue"
 
 const routes = [
   {
@@ -26,6 +28,16 @@ const routes = [
     path: '/register',
     name: 'register',
     component: function () { return import(/* webpackChunkName: "register" */ '../views/RegisterView.vue') }    
+  },
+  {
+    path: '/listar',
+    name: 'listar',
+    component: ListarUsuario
+  },
+  {
+    path: '/crear',
+    name: 'crear',
+    component: CrearUsuario
   },
 ]
 

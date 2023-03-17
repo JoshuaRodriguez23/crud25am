@@ -2,7 +2,7 @@
 	<div class="app">
 		<!-- Sidebar -->
 		<Sidebar />
-
+		<UsuariosView></UsuariosView>
 		<!-- Content -->
 		<router-view />
 	</div>
@@ -10,6 +10,7 @@
 
 <script setup>
 import Sidebar from '../components/Sidebar.vue'
+import UsuariosView from './CRUDusuarios/UsuariosView.vue';
 </script>
 
 <style lang="scss">
