@@ -33,29 +33,33 @@
 </template>
 
 <script>
-import auth from "@/logic/auth";
+import axios from 'axios';  
 export default {
-  name:"App",
-data: () => ({
-  email: "",
-  password: "",
-  error: false
-}),
-methods: {
-  async login() {
-  try {
-    await auth.login(this.email, this.password);
-    const user = {
-      email: this.email      
-    };
-    auth.setUserLogged(user);
-    this.$router.push("/dashboard");
-  } catch (error) {
-    console.log(error);
-    this.error = true;
+  data(){
+    return{
+      email: '',
+      password: '',  
+      error: false
+    }
+  },
+  methods: {
+    login(){
+      let json = {
+        usuario : this.email,
+        password : this.password,                    
+      };
+      axios.post('https://api.solodata.es/auth',json)
+      .then(data=>{
+        if (data.data.status == "ok") {
+          console.log("Todo correcto")
+          this.$router.push("/dashboard");
+        }else
+        {
+          this.error = true;
+        };
+      })
+    }
   }
-}
-}
 };
 </script>
 
