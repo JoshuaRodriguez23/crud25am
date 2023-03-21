@@ -11,7 +11,7 @@
                 <th>User</th>
                 <th>Password</th>
                 <th>FechaRegistro</th>
-                <th>FkEmpleado</th>
+                <th>FkEmapleado</th>
                 <th>FkRol</th>
               </tr>
             </thead>
