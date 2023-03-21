@@ -10,7 +10,7 @@
                 <th>PkUsuario</th>
                 <th>User</th>
                 <th>Password</th>
-                <th>FechaRegistro</th>
+                <th>FechaaRegistro</th>
                 <th>FkEmapleado</th>
                 <th>FkRol</th>
               </tr>
