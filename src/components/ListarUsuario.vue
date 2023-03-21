@@ -1,37 +1,28 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Articulos</div>
-  
+        <div class="card-header">Usuarios</div>
+        
         <div class="card_body">
-          <table class="table">
+          <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Proveedor</th>
-                <th>Precio</th>
-                <th>Acciones</th>
+                <th>PkUsuario</th>
+                <th>User</th>
+                <th>Password</th>
+                <th>FechaRegistro</th>
+                <th>FkEmpleado</th>
+                <th>FkRol</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="articulo in articulos" :key="articulo.id">
-                <td>{{ articulo.id }}</td>
-                <td>{{ articulo.name }}</td>
-                <td>{{ articulo.proveedor }}</td>
-                <td>{{ articulo.precio }}</td>
-                <td>
-                  <div class="btn-group" role="label" aria-label="">
-                    <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
-                    |<button
-                      type="button"
-                      v-on:click="borrarArticulo(articulo.id)"
-                      class="btn btn-danger"
-                    >
-                      Eliminar</button
-                    >|
-                  </div>
-                </td>
+              <tr v-for="usuario in Usuarios" :key="usuario.PkUsuario">
+                <td>{{ usuario.pkUsuario }}</td>
+                <td>{{ usuario.user }}</td>
+                <td>{{ usuario.password }}</td>
+                <td>{{ usuario.fechaRegistro }}</td>
+                <td>{{ usuario.fkEmpleado }}</td>
+                <td>{{ usuario.fkRol }}</td>               
               </tr>
             </tbody>
           </table>
@@ -45,17 +36,17 @@ import axios from "axios";
 export default {
   data() {
     return {
-      articulos: [],
+      Usuarios: [],
     };
   },
   created: function () {
-    this.consultarArticulos();
+    this.consultarUsuarios();
   },
   methods: {
-    consultarArticulos() {
-      axios.get("https://localhost:7053/articulos").then((result) => {
-        console.log(result.data);
-        this.articulos = result.data;
+    consultarUsuarios() {
+      axios.get("https://localhost:7241/Usuarios").then((result) => {
+        console.log(result.data.result);
+        this.Usuarios = result.data.result;
       });
     },
 
