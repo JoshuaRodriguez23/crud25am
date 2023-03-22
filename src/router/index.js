@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ListarUsuario from "../components/ListarUsuario.vue"
 import CrearUsuario from "../components/CrearUsuario.vue"
 
+
 const routes = [
   {
     path: '/',
@@ -38,6 +39,11 @@ const routes = [
     path: '/crear',
     name: 'crear',
     component: CrearUsuario
+  },
+  {
+    path: '/general',
+    name: 'general',
+    component: function () { return import(/* webpackChunkName: "general" */ '../views/GeneralView.vue') }
   },
 ]
 

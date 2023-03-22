@@ -1,14 +1,11 @@
-<template>
-	<Sidebar/>
-	<listar></listar>
-	<h1>hola</h1>
-</template>
 
+<template>
+    <Sidebar></Sidebar>
+    <h1>asd</h1>
+</template>
 
 <script setup>
 import Sidebar from '../components/Sidebar.vue'
-import UsuariosView from './CRUDusuarios/UsuariosView.vue';
-import listar from '../components/ListarUsuario.vue'
 </script>
 
 <style lang="scss">

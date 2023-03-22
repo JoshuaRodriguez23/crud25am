@@ -52,7 +52,7 @@ export default {
       .then(data=>{
         if (data.data.status == "ok") {
           console.log("Todo correcto")
-          this.$router.push("/dashboard");
+          this.$router.push("/general");
         }else
         {
           this.error = true;
