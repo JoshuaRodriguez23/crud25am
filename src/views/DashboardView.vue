@@ -1,17 +1,60 @@
 <template>
-	<Sidebar/>
-	<listar></listar>
-	<h1>hola</h1>
+	<div class="app">
+		<!-- Sidebar -->
+		<Sidebar />
+		<div>
+        	<h2>|  Clientes  |</h2>
+			|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+			|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+		</div>
+	  <div>
+        <h2>|  Departamentos  |</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	  <div>
+        <h2>|	Empleados	|</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	  <div>
+        <h2>|	Factura	|</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	  <div>
+        <h2>|	Puesto	|</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	  <div>
+        <h2>|	Rol		|</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	  <div>
+        <h2>|	Usuarios	|</h2>
+		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
+		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
+	  </div>
+	</div>
+	<router-view />
 </template>
 
 
 <script setup>
 import Sidebar from '../components/Sidebar.vue'
-import UsuariosView from './CRUDusuarios/UsuariosView.vue';
-import listar from '../components/ListarUsuario.vue'
 </script>
 
 <style lang="scss">
+h2{
+	color: white;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
 :root {
 	--primary: #4ade80;
 	--primary-alt: #22c55e;

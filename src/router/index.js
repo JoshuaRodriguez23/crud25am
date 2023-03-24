@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ListarUsuario from "../components/ListarUsuario.vue"
-import CrearUsuario from "../components/CrearUsuario.vue"
+import ListarUsuario from "../components/Usuario/ListarUsuario.vue"
+import CrearUsuario from "../components/Usuario/CrearUsuario.vue"
+import AgregarCliente from "../components/Cliente/AgregarCliente.vue"
+import EditarCliente from "../components/Cliente/EditarCliente.vue"
+import ListarCliente from "../components/Cliente/ListarCliente.vue"
 
 
 const routes = [
@@ -41,9 +44,19 @@ const routes = [
     component: CrearUsuario
   },
   {
-    path: '/general',
-    name: 'general',
-    component: function () { return import(/* webpackChunkName: "general" */ '../views/GeneralView.vue') }
+    path: '/listarcliente',
+    name: 'listarcliente',
+    component: ListarCliente
+  },
+  {
+    path: '/agregarcliente',
+    name: 'agregarcliente',
+    component: AgregarCliente
+  },
+  {
+    path: '/editarcliente/:pkCliente',
+    name: 'editarcliente',
+    component: EditarCliente
   },
 ]
 
@@ -52,4 +65,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router
