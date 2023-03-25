@@ -1,7 +1,7 @@
 <template>
 	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
 		<div class="logo">
-			<img :src="logoURL" alt="Vue" /> 
+			<img src="../assets/asd.png" alt="Vue" /> 
 		</div>
 
 		<div class="menu-toggle-wrap">
@@ -10,32 +10,44 @@
 			</button>
 		</div>
 
-		<h3>Menu</h3>
+		<h3 style="color: white">Menu</h3>
 		<div class="menu">
 			<router-link to="/dashboard" class="button">
-				<span class="material-icons">home</span>
-				<span class="text">Dashboard</span>
+				<span class="material-icons">groups</span>
+				<span class="text">Clientes</span>
 			</router-link>
 			<router-link to="/about" class="button">
-				<span class="material-icons">description</span>
-				<span class="text">Acerca de: </span>
+				<span class="material-icons">web</span>
+				<span class="text">Departamentos </span>
 			</router-link>
 			<router-link to="/team" class="button">
-				<span class="material-icons">group</span>
-				<span class="text">Equipo</span>
+				<span class="material-icons">engineering</span>
+				<span class="text">Empleados</span>
 			</router-link>
-			<router-link to="/contact" class="button">
-				<span class="material-icons">email</span>
-				<span class="text">Contáctanos</span>
+			<router-link to="/contact" class="button">				
+				<span class="material-icons">request_page</span>
+				<span class="text">Facturas</span>
+			</router-link>
+			<router-link to="/contact" class="button">				
+				<span class="material-icons">business_center</span>
+				<span class="text">Puestos</span>
+			</router-link>
+			<router-link to="/contact" class="button">				
+				<span class="material-icons">supervisor_account</span>
+				<span class="text">Roles</span>
+			</router-link>
+			<router-link to="/contact" class="button">				
+				<span class="material-icons">switch_account</span>
+				<span class="text">Usuarios</span>
 			</router-link>
 		</div>
 
 		<div class="flex"></div>
 		
 		<div class="menu">
-			<router-link to="/settings" class="button">
-				<span class="material-icons">settings</span>
-				<span class="text">Configuración</span>
+			<router-link to="/settings" class="button">				
+				<span class="material-icons">logout</span>
+				<span class="text">Cerrar sesión</span>
 			</router-link>
 		</div>
 	</aside>	
@@ -44,7 +56,6 @@
 <script setup>
 import { ref } from 'vue'
 import logoURL from '../assets/logo.png'
-
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
 const ToggleMenu = () => {
@@ -73,11 +84,12 @@ aside {
 	}
 
 	.logo {
-		margin-bottom: 1rem;
-
+		margin-bottom: 0.5rem;
 		img {
-			width: 2rem;
+  		min-width: 50%;
+  		width: 50px;  
 		}
+
 	}
 
 	.menu-toggle-wrap {
