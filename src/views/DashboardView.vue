@@ -1,44 +1,10 @@
 <template>
-	<div class="app">
-		<!-- Sidebar -->
-		<Sidebar />
-		<div>
-        	<h2>|  Clientes  |</h2>
-			|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-			|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-		</div>
-	  <div>
-        <h2>|  Departamentos  |</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	  <div>
-        <h2>|	Empleados	|</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	  <div>
-        <h2>|	Factura	|</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	  <div>
-        <h2>|	Puesto	|</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	  <div>
-        <h2>|	Rol		|</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	  <div>
-        <h2>|	Usuarios	|</h2>
-		|<button type="button" class="btn btn-warning"><router-link to="/agregarcliente">Crear</router-link><br></button>|
-		|<button type="button" class="btn btn-warning"><router-link to="/listarcliente">Listar</router-link><br></button>|
-	  </div>
-	</div>
-	<router-view />
+    <div class="dashboard">
+        <Sidebar/>
+        <div class="content">
+            <router-view/>
+        </div>
+    </div>
 </template>
 
 
@@ -47,6 +13,19 @@ import Sidebar from '../components/Sidebar.vue'
 </script>
 
 <style lang="scss">
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 5fr;    
+    height: 100vh;
+    width: 100vw;
+}
+
+.content {
+    background-color: white;
+    border-radius: 10px;
+    margin: 6px 6px 6px 0px;
+}
 h2{
 	color: white;
 }

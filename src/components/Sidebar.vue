@@ -1,24 +1,20 @@
 <template>
 	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
 		<div class="logo">
-			<img src="../assets/asd.png" alt="Vue" /> 
+			<img src="https://64.media.tumblr.com/tumblr_mbk4icecRT1rfjowdo1_500.gifv" alt="Vue" /> 
+			<h3>Bienvenido</h3>
 		</div>
 
-		<div class="menu-toggle-wrap">
-			<button class="menu-toggle" @click="ToggleMenu">
-				<span class="material-icons">keyboard_double_arrow_right</span>
-			</button>
-		</div>
 
 		<h3 style="color: white">Menu</h3>
 		<div class="menu">
-			<router-link to="/dashboard" class="button">
+			<router-link to="/dashboard/listarcliente" class="button">
 				<span class="material-icons">groups</span>
 				<span class="text">Clientes</span>
 			</router-link>
-			<router-link to="/about" class="button">
+			<router-link to="/dashboard" class="button">
 				<span class="material-icons">web</span>
-				<span class="text">Departamentos </span>
+				<span class="text">Departamentos</span>
 			</router-link>
 			<router-link to="/team" class="button">
 				<span class="material-icons">engineering</span>
@@ -43,7 +39,6 @@
 		</div>
 
 		<div class="flex"></div>
-		
 		<div class="menu">
 			<router-link to="/settings" class="button">				
 				<span class="material-icons">logout</span>
@@ -56,6 +51,9 @@
 <script setup>
 import { ref } from 'vue'
 import logoURL from '../assets/logo.png'
+import agregarcliente from '../components/Cliente/AgregarCliente.vue'
+import ListarCliente from './Cliente/ListarCliente.vue';
+
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 
 const ToggleMenu = () => {

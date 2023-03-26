@@ -26,32 +26,31 @@ const routes = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: function () { return import(/* webpackChunkName: "dashboard" */ '../views/DashboardView.vue') }    
+    component: function () { return import(/* webpackChunkName: "dashboard" */ '../views/DashboardView.vue') }  ,
+    children: [
+      {
+        path: 'listarcliente',
+        component: () => import(/* webpackChunkName: "Overview" */ '../components/Cliente/ListarCliente.vue')
+      },
+      {
+        path: 'agregarcliente',
+        component: () => import(/* webpackChunkName: "Messages" */ '../components/Cliente/AgregarCliente.vue')
+      },
+      // {
+      //   path: 'profile',
+      //   component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue')
+      // },
+      // {
+      //   path: 'settings',
+      //   component: () => import(/* webpackChunkName: "Settings" */ '../views/Settings.vue')
+      // }
+    ]
+
   },
   {
     path: '/register',
     name: 'register',
     component: function () { return import(/* webpackChunkName: "register" */ '../views/RegisterView.vue') }    
-  },
-  {
-    path: '/listar',
-    name: 'listar',
-    component: ListarUsuario
-  },
-  {
-    path: '/crear',
-    name: 'crear',
-    component: CrearUsuario
-  },
-  {
-    path: '/listarcliente',
-    name: 'listarcliente',
-    component: ListarCliente
-  },
-  {
-    path: '/agregarcliente',
-    name: 'agregarcliente',
-    component: AgregarCliente
   },
   {
     path: '/editarcliente/:pkCliente',
