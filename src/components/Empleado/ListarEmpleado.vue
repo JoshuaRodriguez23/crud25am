@@ -6,11 +6,11 @@
                  <h5 class="my-2 mr-md-auto font-weight-normal"></h5>
             </div>
             <div class="col-md-8">
-               <h5 class="my-2 mr-md-auto font-weight-normal" style="align-items: center;">Clientes</h5>
+               <h5 class="my-2 mr-md-auto font-weight-normal" style="align-items: center;">Empleados</h5>
             </div>
             <div class="col col-lg-2">
                <h5 class="my-2 mr-md-auto font-weight-normal">
-                <router-link to="/dashboard/agregarcliente" class="btn btn-warning">
+                <router-link to="/dashboard/agregarempleado" class="btn btn-warning">
 			          	<span class="material-icons">web</span>
 			          	<span class="text">Agregar</span>
 			          </router-link>
@@ -23,32 +23,34 @@
           <table class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>PkCliente</th>
+                <th>PkEmpleado</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Direccion</th>
-                <th>Telefono</th>
-                <th>Email</th>                
+                <th>Ciudad</th>
+                <th>Puesto</th>                
+                <th>Departamento</th>                
                 <th>Editar</th>
                 <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="cliente in Clientes" :key="cliente.pkCliente">
-                <td>{{ cliente.pkCliente }}</td>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.apellido }}</td>
-                <td>{{ cliente.telefono }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>{{ cliente.direccion }}</td>  
+              <tr v-for="empleado in Empleados" :key="empleado.pkEmpleado">
+                <td>{{ empleado.pkEmpleado }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos }}</td>
+                <td>{{ empleado.direccion }}</td>
+                <td>{{ empleado.ciudad }}</td>
+                <td>{{ empleado.puesto.nombre }}</td>  
+                <td>{{ empleado.departamento.nombre }}</td>  
                 <td>
                   <div class="btn-group" role="label" aria-label="">
-                  <button type="button" v-on:click="editarArticulo(cliente.pkCliente)" class="btn btn-warning">Editar</button>
+                  <button type="button" v-on:click="editarEmpleado(empleado.pkEmpleado)" class="btn btn-warning">Editar</button>
                 </div>
                 </td>           
                 <td>
                 <div class="btn-group" role="label" aria-label="">
-                  <button type="button" v-on:click="borrarArticulo(cliente.pkCliente)" class="btn btn-danger">Eliminar</button>
+                  <button type="button" v-on:click="borrarEmpleado(empleado.pkEmpleado)" class="btn btn-danger">Eliminar</button>
                 </div>
                 </td>           
               </tr>
@@ -64,29 +66,29 @@ import axios from "axios";
 export default {
   data() {
     return {
-      Clientes: [],
+      Empleados: [],
     };
   },
   created: function () {
-    this.consultarClientes();    
+    this.consultarEmpleados();    
   },
   methods: {
-    consultarClientes() {
-      axios.get("https://localhost:7241/Cliente").then((result) => {
+    consultarEmpleados() {
+      axios.get("https://localhost:7241/Empleado").then((result) => {
         console.log(result.data.result);
-        this.Clientes = result.data.result;
+        this.Empleados = result.data.result;
       });
     },
-    borrarArticulo(pkCliente) {
-      console.log(pkCliente);
+    borrarEmpleado(pkEmpleado) {
+      console.log(pkEmpleado);
 
-      axios.delete("https://localhost:7241/Cliente/" + pkCliente);
+      axios.delete("https://localhost:7241/Empleado/" + pkEmpleado);
 
-      window.location.href = "ListarCliente";
+      window.location.href = "listarempleado";
     },
-    editarArticulo(pkCliente){
-      console.log(pkCliente);
-      this.$router.push("/EditarCliente/" + pkCliente)
+    editarEmpleado(pkEmpleado){
+      console.log(pkEmpleado);
+      this.$router.push("/EditarEmpleado/" + pkEmpleado)
     },
   },
 };

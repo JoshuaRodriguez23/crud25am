@@ -36,14 +36,30 @@ const routes = [
         path: 'agregarcliente',
         component: () => import(/* webpackChunkName: "Messages" */ '../components/Cliente/AgregarCliente.vue')
       },
-      // {
-      //   path: 'profile',
-      //   component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue')
-      // },
-      // {
-      //   path: 'settings',
-      //   component: () => import(/* webpackChunkName: "Settings" */ '../views/Settings.vue')
-      // }
+      {
+        path: 'listardepartamento',
+        component: () => import(/* webpackChunkName: "Profile" */ '../components/Departamento/ListarDepartamento.vue')
+      },
+      {
+        path: 'agregardepartamento',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Departamento/AgregarDepartamento.vue')
+      },
+      {
+        path: '/editardepartamento/:pkDepartamento',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Departamento/EditarDepartamento.vue')
+      },
+      {
+        path: 'agregarempleado',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/AgregarEmpleado.vue')
+      },
+      {
+        path: 'listarempleado',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/ListarEmpleado.vue')
+      },
+      {
+        path: '/editarempleado/:pkEmpleado',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/EditarEmpleado.vue')
+      },      
     ]
 
   },
@@ -56,6 +72,14 @@ const routes = [
     path: '/editarcliente/:pkCliente',
     name: 'editarcliente',
     component: EditarCliente
+  },  
+  {
+    path: '/editardepartamento/:pkDepartamento',    
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Departamento/EditarDepartamento.vue')
+  },
+  {
+    path: '/editarempleado/:pkEmpleado',    
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/EditarEmpleado.vue')
   },
 ]
 
