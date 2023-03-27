@@ -24,7 +24,7 @@
                 class="form-control"
                 name="apellido"
                 id="apellido"
-                v-model="form.apellidos"
+                v-model="form.apellido"
                 aria-describedby="helpId"
                 placeholder="Apellido"
               />
@@ -56,31 +56,21 @@
               />
               <small id="helpId" class="form-text" text-muted>Ingresa tu Ciudad</small>
             </div><br/>
+            
             <div class="form-group">
-              <label for="">Puesto:</label>
-              <input
-                type="text"
-                class="form-control"
-                name="puesto"
-                id="puesto"
-                v-model="form.puesto"
-                aria-describedby="helpId"
-                placeholder="Puesto"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa tu Puesto</small>
+            <!-- ------------------------------------------------------ -->
+              <label for="puesto">Puesto</label>
+              <select class="form-control" name="puesto" id="puesto" v-model="form.fkPuesto">
+                <option v-for="puesto in puestos" :value="puesto.pkpuesto" :key="puesto.pkpuesto">{{puesto.nombre}}</option>
+              </select>
             </div><br/>
+            <!-- ------------------------------------------------------ -->
             <div class="form-group">
-              <label for="">Departamento:</label>
-              <input
-                type="text"
-                class="form-control"
-                name="departamento"
-                id="departamento"
-                v-model="form.departamento"
-                aria-describedby="helpId"
-                placeholder="Departamento"
-              />
-              <small id="helpId" class="form-text" text-muted>Ingresa tu Departamento</small>
+              <label for="departamento">Departamento</label>
+              <select class="form-control" name="departamento" id="departamento" v-model="form.fkDepartamento">
+                <option v-for="departamento in departamentos" :value="departamento.pkDepartamento" :key="departamento.pkDepartamento">{{departamento.nombre}}</option>
+              </select>
+              <!-- ------------------------------------------------------ -->
             </div><br/>
   
             <div class="btn-group" role="group">
@@ -106,36 +96,53 @@ export default{
             form:{
                 "pkEmpleado":"",
                 "nombre":"",
-                "apellidos":"",
+                "apellido":"",
                 "direccion":"",
                 "ciudad":"",
-                "puesto":"",
-                "departamento":"",
+                "fkPuesto":"",
+                "fkDepartamento":"",
             },
+              puestos:[],
+              departamentos:[],
         }
     },
+      created: function () {
+        this.consultarPuesto();
+        this.consultarDepartamento();    
+      },
     
     methods: {
-      editarDepartamento() {
+      editarEmpleado() {
         axios.put("https://localhost:7241/Empleado/" + this.pkEmpleado, this.form).then
         (data=>{
             console.log(data);
-        });
-        this.$router.push("/dashboard/listarempleado")
-      }
-    },
-    mounted:function(pkEmpleado){
+           });
+          this.$router.push("/dashboard/listarempleado")
+           },
+           consultarDepartamento() {
+             axios.get("https://localhost:7241/Departamento").then((result) => {
+               console.log(result.data.result);
+               this.departamentos = result.data.result;});
+              },
+              consultarPuesto() {
+                axios.get("https://localhost:7241/Puesto").then((result) => {
+                  console.log(result.data.result);
+                  this.puestos = result.data.result;});
+                },
+              },
+
+     mounted:function(pkEmpleado){
         this.pkEmpleado = this.$route.params.pkEmpleado;
         console.log(this.pkEmpleado);
         axios.get("https://localhost:7241/Empleado/" + this.pkEmpleado)
         .then(datos=>{          
             this.form.pkEmpleado = datos.data.value.result.pkEmpleado
             this.form.nombre = datos.data.value.result.nombre
-            this.form.apellidos = datos.data.value.result.apellidos
+            this.form.apellido = datos.data.value.result.apellidos
             this.form.direccion = datos.data.value.result.direccion
             this.form.ciudad = datos.data.value.result.ciudad
-            this.form.puesto = datos.data.value.result.puesto
-            this.form.departamento = datos.data.value.result.departamento;
+            this.form.fkPuesto = datos.data.value.result.puesto
+            this.form.fkDepartamento = datos.data.value.result.departamento;
             console.log(this.form);
         });
 
