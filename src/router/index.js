@@ -59,7 +59,43 @@ const routes = [
       {
         path: '/editarempleado/:pkEmpleado',    
         component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/EditarEmpleado.vue')
-      },      
+      },    
+      {
+        path: 'listarfactura',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Factura/ListarFactura.vue')
+      },   
+      {
+        path: 'agregarfactura',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Factura/AgregarFactura.vue')
+      },   
+      {
+        path: '/editarfactura/:pkFactura',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Factura/EditarFactura.vue')
+      },     
+      {
+        path: 'listarpuesto',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Puesto/ListarPuesto.vue')
+      },   
+      {
+        path: 'agregarpuesto',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Puesto/AgregarPuesto.vue')
+      },   
+      {
+        path: '/editarpuesto/:pkpuesto',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Puesto/EditarPuesto.vue')
+      },  
+      {
+        path: 'agregarrol',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/AgregarRol.vue')
+      },
+      {
+        path: 'listarrol',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/ListarRol.vue')
+      },
+      {
+        path: '/editarrol/:pkRol',
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/EditarRol.vue')
+      },  
     ]
 
   },
@@ -80,7 +116,19 @@ const routes = [
   {
     path: '/editarempleado/:pkEmpleado',    
     component: () => import(/* webpackChunkName: "Settings" */ '../components/Empleado/EditarEmpleado.vue')
-  },
+  },    
+  {
+    path: '/editarfactura/:pkFactura',
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Factura/EditarFactura.vue')
+  },    
+  {
+    path: '/editarpuesto/:pkpuesto',
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Puesto/EditarPuesto.vue')
+    },  
+  {
+    path: '/editarrol/:pkRol',
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/EditarRol.vue')
+    },  
 ]
 
 const router = createRouter({

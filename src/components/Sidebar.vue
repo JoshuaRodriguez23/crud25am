@@ -25,19 +25,19 @@
 				<span class="material-icons">engineering</span>
 				<span class="text">Empleados</span>
 			</router-link>
-			<router-link to="/contact" class="button">				
+			<router-link to="/dashboard/listarfactura" class="button">				
 				<span class="material-icons">request_page</span>
 				<span class="text">Facturas</span>
 			</router-link>
-			<router-link to="/contact" class="button">				
+			<router-link to="/dashboard/listarpuesto" class="button">				
 				<span class="material-icons">business_center</span>
 				<span class="text">Puestos</span>
 			</router-link>
-			<router-link to="/contact" class="button">				
+			<router-link to="/dashboard/listarrol" class="button">				
 				<span class="material-icons">supervisor_account</span>
 				<span class="text">Roles</span>
 			</router-link>
-			<router-link to="/contact" class="button">				
+			<router-link to="/dashboard/listarusuarios" class="button">				
 				<span class="material-icons">switch_account</span>
 				<span class="text">Usuarios</span>
 			</router-link>
