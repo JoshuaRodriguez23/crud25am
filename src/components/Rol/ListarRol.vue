@@ -32,12 +32,12 @@
                 <td>{{ rol.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
-                  <button type="button" v-on:click="editarArticulo(rol.pkRol)" class="btn btn-warning">Editar</button>
+                  <button type="button" v-on:click="editarRol(rol.pkRol)" class="btn btn-warning">Editar</button>
                 </div>
                 </td>           
                 <td>
                 <div class="btn-group" role="label" aria-label="">
-                  <button type="button" v-on:click="borrarArticulo(rol.pkRol)" class="btn btn-danger">Eliminar</button>
+                  <button type="button" v-on:click="borrarRol(rol.pkRol)" class="btn btn-danger">Eliminar</button>
                 </div>
                 </td>           
               </tr>
@@ -49,7 +49,6 @@
   </template>
 
 <script>
-import { restProperty } from "@babel/types";
 import axios from "axios";
 export default {
   data() {
@@ -67,14 +66,14 @@ export default {
         this.Roles = result.data.result;
       });
     },
-    borrarArticulo(pkRol) {
+    borrarRol(pkRol) {
       console.log(pkRol);
 
       axios.delete("https://localhost:7241/Rol/" + pkRol);
 
       window.location.href = "listarrol";
     },
-    editarArticulo(pkRol){
+    editarRol(pkRol){
       console.log(pkRol);
       this.$router.push("/editarrol/" + pkRol)
     },

@@ -4,11 +4,11 @@
 			<img src="https://64.media.tumblr.com/tumblr_mbk4icecRT1rfjowdo1_500.gifv" alt="Vue" /> 
 			<h3>Bienvenido</h3>
 		</div>
-		<!-- <div class="menu-toggle-wrap">
+		<div class="menu-toggle-wrap">
 			<button class="menu-toggle" @click="ToggleMenu">
 				<span class="material-icons">keyboard_double_arrow_right</span>
 			</button>
-		</div> -->
+		</div>
 
 
 		<h3 style="color: white">Menu</h3>
@@ -37,7 +37,7 @@
 				<span class="material-icons">supervisor_account</span>
 				<span class="text">Roles</span>
 			</router-link>
-			<router-link to="/dashboard/listarusuarios" class="button">				
+			<router-link to="/dashboard/listarusuario" class="button">				
 				<span class="material-icons">switch_account</span>
 				<span class="text">Usuarios</span>
 			</router-link>

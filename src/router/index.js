@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ListarUsuario from "../components/Usuario/ListarUsuario.vue"
-import CrearUsuario from "../components/Usuario/CrearUsuario.vue"
+import CrearUsuario from "../components/Usuario/AgregarUsuario.vue"
 import AgregarCliente from "../components/Cliente/AgregarCliente.vue"
 import EditarCliente from "../components/Cliente/EditarCliente.vue"
 import ListarCliente from "../components/Cliente/ListarCliente.vue"
@@ -95,7 +95,19 @@ const routes = [
       {
         path: '/editarrol/:pkRol',
         component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/EditarRol.vue')
-      },  
+      },
+      {
+        path: 'listarusuario',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Usuario/ListarUsuario.vue')
+      },
+      {
+        path: 'agregarusuario',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Usuario/AgregarUsuario.vue')
+      },
+      {
+        path: '/editarusuario/:pkUsuario',    
+        component: () => import(/* webpackChunkName: "Settings" */ '../components/Usuario/EditarUsuario.vue')
+      },
     ]
 
   },
@@ -124,11 +136,15 @@ const routes = [
   {
     path: '/editarpuesto/:pkpuesto',
     component: () => import(/* webpackChunkName: "Settings" */ '../components/Puesto/EditarPuesto.vue')
-    },  
+  },  
   {
-    path: '/editarrol/:pkRol',
-    component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/EditarRol.vue')
-    },  
+  path: '/editarrol/:pkRol',
+  component: () => import(/* webpackChunkName: "Settings" */ '../components/Rol/EditarRol.vue')
+  },  
+  {
+    path: '/editarusuario/:pkUsuario',    
+    component: () => import(/* webpackChunkName: "Settings" */ '../components/Usuario/EditarUsuario.vue')
+  },
 ]
 
 const router = createRouter({
